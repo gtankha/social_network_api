@@ -94,7 +94,7 @@ const thoughtController = {
                     return;
                 }
                 console.log(dbThoughtData);
-                Thought.findOneAndDelete(
+                Thought.findOneAndUpdate(
                     { _id: params.userId },
                     { $pull: { reactions: dbThoughtData.reactionId } },
                     { new: true, runValidators: true }
