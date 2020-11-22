@@ -56,8 +56,11 @@
 
  Video link: https://drive.google.com/file/d/1kirNgcbKOyLKvDdo0pvV4hVIoDX97UMj/view
 
+Screenshot with formatted time: https://user-images.githubusercontent.com/46304828/99910879-67585400-2ca5-11eb-92e3-f1489cc8dd12.png
 
-  In case of any questions, please reach out to the following contact email: gtankha@gmail.com
+Please note that the Videos contained a formatted date but did not include a time stamp. Screenshot attached demonstrates the latest version of the application that includes formatted time as well
+
+In case of any questions, please reach out to the following contact email: gtankha@gmail.com
 
 
 
