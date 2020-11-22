@@ -15,11 +15,10 @@
   <a name="description"></a>
   ## 1. Description
 
-  Application provides the ability to do the following: 
+  Application is a social network API that allows one to create, read, update and delete users and their thoughts. The app will also allow a user to add and delete friends. In adddition, a user can also add and delete reactions to a thought.
 
-  Anonymously: View blogs, login and signup
-  Authenticated: View user blogs, add, edit or delete a blog, add a comment, sign-out
- 
+  The application does not have a front-end. A tool like Insomnia is required to test the application. 
+
   <a name="installation"></a> 
   ## 2. Installation
 
@@ -28,7 +27,7 @@
   <a name="usage"></a> 
   ## 3. Usage
 
-  Application is running on Heroku. It will directly take you to the home page from which you can setup a user or login to access all the functionality.
+  The application does not have a front-end. A tool like Insomnia is required to test the application.
 
   <a name="license"></a> 
   ## 4. License
@@ -46,16 +45,16 @@
   <a name="tests"></a> 
   ## 6. Test
       
-  Validation is perfomed to ensure that data is not empty. Additionally, only authenticated users can access functions such as add comment, add/edit/delete blogs and logout.
+  Validation is perfomed to ensure that data is not empty and required fields are entered. .
 
   <a name="questions"></a> 
   ## 7. Questions
   
   GitHub Username: gtankha
 
-  GitHub: https://github.com/gtankha/tech-blog
+  GitHub: https://github.com/gtankha/social_network_api
 
-  Website: 
+ Video link: 
 
   
   In case of any questions, please reach out to the following contact email: gtankha@gmail.com

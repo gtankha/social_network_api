@@ -1,34 +1,42 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
+var moment = require('moment')
 
-
+// Reaction schema including modified date format using Moments
 const reactionSchema = new Schema(
 
-{
-    reactionId: {
-        type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId()
-      },
-      reactionBody: {
-        type: String,
-        required: true,
-        maxlength: 280
-      },
-      username: {
-        type: String,
-        required: true
+    {
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId()
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            maxlength: 280
+        },
+        username: {
+            type: String,
+            required: true
 
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-       // get: createdAtVal => dateFormat(createdAtVal)
-      }
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (fordate) => moment(fordate).format('MMM DD YYYY')
+        }
 
-}
 
+    },
+    {
+        toJSON: {
+            getters: true
+        },
+        id: false
+    }
 
 );
 
+//Thought schema including modified date format using Moments
 const ThoughtSchema = new Schema(
     {
         thoughtText: {
@@ -39,7 +47,8 @@ const ThoughtSchema = new Schema(
         },
         createdAt: {
             type: Date,
-            default: Date.now
+            default: Date.now,
+            get: (fordate) => moment(fordate).format('MMM DD YYYY')
         },
         username: {
             type: String,
@@ -49,15 +58,16 @@ const ThoughtSchema = new Schema(
     },
     {
         toJSON: {
-            virtuals: true
+            virtuals: true,
+            getters: true
         },
         id: false
     });
-    ThoughtSchema.virtual('reactionCount').get(function() {
-        return this.reactions.length;
-      });
+ThoughtSchema.virtual('reactionCount').get(function () {
+    return this.reactions.length;
+});
 
-      // create the User model using the UserSchema
+// create the User model using the UserSchema
 const Thought = model('Thought', ThoughtSchema);
 
 // export the Usermodel

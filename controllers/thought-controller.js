@@ -1,4 +1,4 @@
-const { Thought } = require('../models');
+const { Thought, User } = require('../models');
 
 const thoughtController = {
     // get all thoughts
@@ -69,6 +69,7 @@ const thoughtController = {
             .catch(err => res.status(400).json(err));
     },
     createReaction({ params, body }, res) {
+        console.log(body);
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
             { $push: { reactions: body } },
@@ -86,26 +87,44 @@ const thoughtController = {
                 res.status(400).json(err);
             });
     },
-    deleteReaction({ params }, res) {
-        Thought.findOne({ _id: params.id })
+    /* deleteReaction({ params }, res) {
+         Thought.findOne({ _id: params.thoughtId })
+             .then(dbThoughtData => {
+                 if (!dbThoughtData){
+                     res.status(404).json({ message: 'No thought found with this id!' });
+                     return;
+                 }
+                 console.log(dbThoughtData.reactions);
+                 Thought.findOneAndUpdate(
+                     { _id: params.thoughtId },
+                     { $pull: { reactions: dbThoughtData.reactions } },
+                     { new: true, runValidators: true }
+ 
+                 )
+                 
+             })
+             .catch(err => {
+                 console.log(err);
+                 res.status(400).json(err);
+             });
+     } */
+    deleteReaction({ params, body }, res) {
+        Thought.findOneAndUpdate(
+            { _id: params.thoughtId },
+            { $pull: { reactions: {reactionId: body.reactionId } } },
+            { new: true, runValidators: true }
+        )
             .then(dbThoughtData => {
                 if (!dbThoughtData){
                     res.status(404).json({ message: 'No thought found with this id!' });
                     return;
                 }
-                console.log(dbThoughtData);
-                Thought.findOneAndUpdate(
-                    { _id: params.userId },
-                    { $pull: { reactions: dbThoughtData.reactionId } },
-                    { new: true, runValidators: true }
-
-                )
-                
+                res.json(dbThoughtData);
             })
-            .catch(err => {
-                console.log(err);
-                res.status(400).json(err);
-            });
+                .catch(err => {
+                    console.log(err);
+                    res.status(400).json(err);
+                });
     }
 
 }
