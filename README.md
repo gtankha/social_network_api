@@ -54,10 +54,11 @@
 
   GitHub: https://github.com/gtankha/social_network_api
 
- Video link: 
+ Video link: https://drive.google.com/file/d/1kirNgcbKOyLKvDdo0pvV4hVIoDX97UMj/view
 
-  
+
   In case of any questions, please reach out to the following contact email: gtankha@gmail.com
+
 
 
 
